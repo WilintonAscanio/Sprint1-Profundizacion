@@ -17,6 +17,17 @@ export const welcome = document.getElementById('welcome');
 export const createAccount = document.getElementById('createAccount');
 export const user_chat = document.getElementById('user_chat');
 export const header = document.getElementById('header');
+export const login__celular = document.getElementById('login__celular');
+export const login_password = document.getElementById('login_password');
+export const allSignUp = document.querySelectorAll('.form');
+export const signUp__name = document.getElementById('signUp__name');
+export const signUp__cel = document.getElementById('signUp__cel');
+export const signUp__password = document.getElementById('signUp__password');
+export const signUp__url = document.getElementById('signUp__url');
+export const signUp__phrase = document.getElementById('signUp__phrase');
+
+
+
 
 
 
