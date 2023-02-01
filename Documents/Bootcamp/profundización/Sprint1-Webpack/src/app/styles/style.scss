@@ -387,12 +387,12 @@ nav {
     height: 100vh;
     background-color: #ededed;
 
-    &messages__header {
+    &__header {
         height: 60px;
         padding: 10px;
     }
 
-    &messages__user {
+    &__user {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -401,7 +401,7 @@ nav {
 
     }
 
-    &messages__figure {
+    &__figure {
         display: flex;
         gap: 5px;
     }
