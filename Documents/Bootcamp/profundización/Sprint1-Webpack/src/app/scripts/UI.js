@@ -1,4 +1,4 @@
-import icono from "../assets/images/icono.png";
+// import icono from "../assets/images/icono.pn";
 import fondo from "../assets/images/fondo.jpg";
 
 
@@ -6,8 +6,8 @@ import fondo from "../assets/images/fondo.jpg";
 
 // DOM elements
 
-const iconoImg = document.getElementById('nav__img');
-const body = document.getElementById('body');
+// const iconoImg = document.getElementById('nav__img');
+
 export const navSignIn = document.getElementById('nav--right--SignIn');
 export const formSignIn = document.getElementById('form_login');
 export const formSignUp = document.getElementById('signUp');
@@ -27,16 +27,6 @@ export const signUp__url = document.getElementById('signUp__url');
 export const signUp__phrase = document.getElementById('signUp__phrase');
 
 
-
-
-
-
-
-
-
-export const renderImages = () => {
-    iconoImg.src = icono;
+// iconoImg.src = icono;
      
-}
-
 
