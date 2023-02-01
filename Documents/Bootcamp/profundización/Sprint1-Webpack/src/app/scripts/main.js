@@ -6,7 +6,6 @@ import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, create
 //Expresiones regulares
 
 var expRegNombre = /^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
-// var expRegContra = /^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$/
 
 
 const showFormSingIn = () => {

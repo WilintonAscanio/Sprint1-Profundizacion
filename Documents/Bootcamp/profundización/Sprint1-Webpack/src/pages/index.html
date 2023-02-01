@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../app/assets/images/icono.png">
+    <link rel="shortcut icon" href="./images/icono.png">
     <title>Whats'up</title>
 </head>
 <body>
-    <header id="header">
+    <header id="header" class="hidden">
         <nav>
             <div class="nav__left">
                 <figure>
-                    <img src="./images/icono.png" id="nav__img">
+                    <img id="nav__img">
                 </figure>
                 <p id="nav__title">What's Up</p>
             </div>
@@ -24,7 +24,7 @@
     
         </nav>
     </header>
-    <article class="welcome" id="welcome">
+    <article class="welcome hidden" id="welcome">
         <div class="welcome__left">
             <h1>Bienvenido a What's Up</h1>
             <p>Esperemos que disfrutes y siempre recuerdes que en Whats'up <strong class="welcome__slogan">Conectamos tu
@@ -43,8 +43,8 @@
             <button type="submit" class="login__submit">Iniciar sesión</a></button>
 
         </form>
-        <figure class="welcome__figure" id="welcome__figure">
-            <img src="./images/icono.png" class="welcome__img">
+        <figure class="welcome__figure" >
+            <img class="welcome__img" id="welcome__figure">
         </figure>
 
     </article>
@@ -66,16 +66,16 @@
         </form>
 
     </article>
-    <article class="all hidden" id="user_chat">
+    <article class="all" id="user_chat">
         <aside class="aside">
             <figure class="aside__figure">
-                <img src="/images/hombre.png" alt="profile__image" class="aside__img">
+                <img alt="profile__image" class="aside__img" id="aside__image">
             </figure>
             <h1>Todos los Chats</h1>
             <div class="aside__search">
                 <section class="aside__inputSearch">
                     <figure>
-                        <img src="/images/search.svg" alt="lupa">
+                        <img id="lupa" alt="lupa">
                     </figure>
                     <input type="search" placeholder="Buscar o iniciar un nuevo chat" id="aside__input" class="aside__input">
                 </section>
@@ -83,12 +83,12 @@
             <section class="chat">
                 <div class="chat__container">
                     <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
+                        <img alt="profile__chat" class="chat__img" id="profile2__img">
                     </figure>
                     <div class="chat__infoUser">
                         <p class="chat__name">Antonio <span>Viernes</span></p>
                         <p class="chat__message">
-                            <img src="/images/doble-verificacion.png" alt="enviado"> <img src="/images/visto__azul.png" alt="visto__azul" class="hidden"> <span>Este es
+                            <img alt="enviado" id="enviado"> <img alt="visto__azul" class="hidden" id="visto_azul"> <span>Este es
                                 un mensaje que puede ser enviado de adada adad </span> </p>
 
                     </div>
@@ -111,7 +111,7 @@
                     <div class="chat__infoUser">
                         <p class="chat__name">Ana <span>Viernes</span></p>
                         <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
+                                un mensaje que puede ser  de adada adad </span> </p>
 
                     </div>
                 </div>
@@ -197,11 +197,11 @@
             <header class="messages__header">
                 <div class="messages__user">
                     <figure class="messages__figure">
-                        <img src="/images/hombre2.png" id="img__user2" class="img_user2">
+                        <img id="img__user2" class="img_user2">
                         <p id="messages__user2__name">Josefa <span>EN LINEA</span></p>
                     </figure>
                     <figure>
-                        <img src="/images/search.svg" alt="search">
+                        <img alt="search" id="search">
                     </figure>
                 </div>
             </header>
@@ -280,12 +280,12 @@
             <footer>
                 <form class="form__footer" id="form__footer">
                     <figure class="footer__figure">
-                        <img src="/images/smile.svg" alt="smile">
-                        <img src="/images/paperclip.svg" alt="paperclip">
+                        <img alt="smile" id="emoji">
+                        <img id="paperclip" alt="paperclip">
                     </figure>
                     <input type="text" placeholder="Escribe un mensaje" id="footer__input">
                     <figure class="footer__figure__mic">
-                        <img src="/images/mic.svg" alt="mic" id="mic">
+                        <img alt="mic" id="mic">
                     </figure>
                     <button type="submit"></button>
 
