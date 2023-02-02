@@ -7,6 +7,9 @@ import visto from "../assets/images/visto__azul.png"
 import icon_emoji from "../assets/images/smile.svg"
 import icon_paper from "../assets/images/paperclip.svg"
 import icon_mic from "../assets/images/mic.svg"
+import icon_back from "../assets/images/icon-back.png"
+import icon_camera from "../assets/images/camara.png"
+import icon_edit from "../assets/images/editar.png"
 
 
 
@@ -41,6 +44,11 @@ export const search = document.getElementById('search');
 export const emoji = document.getElementById('emoji');
 export const paperclip = document.getElementById('paperclip');
 export const mic = document.getElementById('mic');
+export const back = document.getElementById('back')
+export const camera = document.getElementById('camera')
+export const edit = document.getElementById('edit')
+export const aside__profile = document.getElementById('aside__profile')
+export const aside = document.getElementById('aside')
 
 
 iconoImg.src = icono;
@@ -55,5 +63,8 @@ search.src = icon_lupa
 emoji.src = icon_emoji;
 paperclip.src = icon_paper
 mic.src = icon_mic;
+back.src = icon_back;
+camera.src = icon_camera;
+edit.src = icon_edit
 
 
