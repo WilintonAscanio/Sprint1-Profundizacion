@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 import '../styles/style.scss';
 import './UI'
-import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase } from "./UI";
+import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back } from "./UI";
 
 //Expresiones regulares
 
@@ -117,4 +117,14 @@ formSignUp.addEventListener('submit', (e) => {
         })
         validation(signUp__cel, signUp__password)
     }
+})
+
+asideImage.addEventListener('click', () => {
+    aside.classList.add('hidden');
+    aside__profile.classList.remove('hidden');
+  
+})
+back.addEventListener('click', () => {
+  aside__profile.classList.add('hidden');
+  aside.classList.remove('hidden');
 })
