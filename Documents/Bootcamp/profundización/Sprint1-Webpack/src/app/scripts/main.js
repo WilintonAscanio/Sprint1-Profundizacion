@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 import '../styles/style.scss';
 import './UI'
-import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back } from "./UI";
+import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back, edit_url, section_img, edit_img, confirm, section_name, edit } from "./UI";
 
 //Expresiones regulares
 
@@ -127,4 +127,26 @@ asideImage.addEventListener('click', () => {
 back.addEventListener('click', () => {
   aside__profile.classList.add('hidden');
   aside.classList.remove('hidden');
+})
+
+edit_url.addEventListener('click', () => {
+  section_img.classList.remove('hidden');
+})
+
+edit_img.addEventListener('click', () => {
+    Swal.fire({
+        icon: 'success',
+        text:'Imagen editada exitosamente'
+    })
+  section_img.classList.add('hidden')
+})
+edit.addEventListener('click', () => {
+    section_name.classList.remove('hidden');
+})
+confirm.addEventListener('click', () => {
+    Swal.fire({
+        icon: 'success',
+        text:'Nombre editado exitosamente'
+    })
+  section_name.classList.add('hidden');
 })

@@ -10,6 +10,7 @@ import icon_mic from "../assets/images/mic.svg"
 import icon_back from "../assets/images/icon-back.png"
 import icon_camera from "../assets/images/camara.png"
 import icon_edit from "../assets/images/editar.png"
+import icon_confirm from "../assets/images/cheque.png"
 
 
 
@@ -36,7 +37,7 @@ export const signUp__url = document.getElementById('signUp__url');
 export const signUp__phrase = document.getElementById('signUp__phrase');
 export const asideImage = document.getElementById('aside__image');
 export const lupa = document.getElementById('lupa');
-export const profile2__img = document.getElementById('profile2__img')
+export const profile2__img = document.getElementById('profile2__img');
 export const visto_azul = document.getElementById('visto_azul')
 export const enviado = document.getElementById('enviado');
 export const img__user2 = document.getElementById('img__user2');
@@ -44,12 +45,23 @@ export const search = document.getElementById('search');
 export const emoji = document.getElementById('emoji');
 export const paperclip = document.getElementById('paperclip');
 export const mic = document.getElementById('mic');
-export const back = document.getElementById('back')
-export const camera = document.getElementById('camera')
-export const edit = document.getElementById('edit')
-export const aside__profile = document.getElementById('aside__profile')
-export const aside = document.getElementById('aside')
+export const back = document.getElementById('back');
+export const camera = document.getElementById('camera');
+export const edit = document.getElementById('edit');
+export const aside__profile = document.getElementById('aside__profile');
+export const aside = document.getElementById('aside');
+export const confirm = document.getElementById('confirm');
+export const edit_img = document.getElementById('edit_img');
+export const edit_url = document.getElementById('edit_url');
+export const section_img = document.getElementById('section_img');
+export const section_name = document.getElementById('section_name');
 
+
+
+
+
+
+//Asignación de imagenes
 
 iconoImg.src = icono;
 welcome__figure.src = icono;
@@ -65,6 +77,8 @@ paperclip.src = icon_paper
 mic.src = icon_mic;
 back.src = icon_back;
 camera.src = icon_camera;
-edit.src = icon_edit
+edit.src = icon_edit;
+confirm.src = icon_confirm;
+edit_img.src = icon_confirm
 
 
