@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <link rel="shortcut icon" href="./images/icono.png">
     <title>Whats'up</title>
 </head>
+
 <body>
     <header id="header" class="hidden">
         <nav>
@@ -20,8 +22,8 @@
                 <button class="nav__button" id="nav--right--SignIn">Sign In</button>
                 <button class="nav__button" id="signUp__button">Sign Up</button>
             </div>
-    
-    
+
+
         </nav>
     </header>
     <article class="welcome hidden" id="welcome">
@@ -43,13 +45,13 @@
             <button type="submit" class="login__submit">Iniciar sesión</a></button>
 
         </form>
-        <figure class="welcome__figure" >
+        <figure class="welcome__figure">
             <img class="welcome__img" id="welcome__figure">
         </figure>
 
     </article>
     <article class="containerForm hidden" id="createAccount">
-        
+
         <form id="signUp" class="form">
             <h1>Create an account</h1>
             <label for="signUp__name">Nombre (*)</label>
@@ -77,7 +79,8 @@
                     <figure>
                         <img id="lupa" alt="lupa">
                     </figure>
-                    <input type="search" placeholder="Buscar o iniciar un nuevo chat" id="aside__input" class="aside__input">
+                    <input type="search" placeholder="Buscar o iniciar un nuevo chat" id="aside__input"
+                        class="aside__input">
                 </section>
             </div>
             <section class="chat">
@@ -88,8 +91,10 @@
                     <div class="chat__infoUser">
                         <p class="chat__name">Antonio <span>Viernes</span></p>
                         <p class="chat__message">
-                            <img alt="enviado" id="enviado"> <img alt="visto__azul" class="hidden" id="visto_azul"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
+                            <img alt="enviado" id="enviado"> <img alt="visto__azul" class="hidden" id="visto_azul">
+                            <span>Este es
+                                un mensaje que puede ser enviado de adada adad </span>
+                        </p>
 
                     </div>
                 </div>
@@ -111,7 +116,7 @@
                     <div class="chat__infoUser">
                         <p class="chat__name">Ana <span>Viernes</span></p>
                         <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser  de adada adad </span> </p>
+                                un mensaje que puede ser de adada adad </span> </p>
 
                     </div>
                 </div>
@@ -202,19 +207,27 @@
             </div>
             <section class="aside__profile__img">
 
-                <div class="container__photo">
+                <div class="container__photo" id="edit_url">
                     <figure>
                         <img id="camera" alt="camera">
                     </figure>
                     <small>Cambiar imagen</small>
                 </div>
+                <section class="aside__profile__img__section hidden" id="section_img">
+                    <input type="url" placeholder="Ingrese el enlace" id="edit__img">
+                    <button><img alt="edit" id="edit_img"></button>
+                </section>
 
             </section>
             <div class="aside__profile__data">
                 <p>Tu nombre</p>
                 <small><span>Chris</span><img id="edit" alt="editar"></small>
+                <div class="aside__profile__data__button hidden" id="section_name">
+                    <input type="text" placeholder="Ingrese el nuevo nombre" id="edit__name">
+                    <button><img alt="ok" id="confirm"></button>
+                </div>
             </div>
-                
+
         </aside>
         <section class="messages">
             <header class="messages__header">
@@ -230,9 +243,9 @@
             </header>
             <main>
                 <article class="main__all__messages" id="main">
-                <div class="main__day">
-                    <p>Miercoles</p>
-                </div>
+                    <div class="main__day">
+                        <p>Miercoles</p>
+                    </div>
                     <section class="main__left message">
                         <div class="main__messages">
                             <p>Este mensaje solo va a servir de ejemplo para este ejercicio, asi que lo que se diga
@@ -298,7 +311,7 @@
                     </section>
 
                 </article>
-                
+
             </main>
             <footer>
                 <form class="form__footer" id="form__footer">
@@ -313,7 +326,7 @@
                     <button type="submit"></button>
 
                 </form>
-               
+
             </footer>
 
 
@@ -322,7 +335,8 @@
 
 
     </article>
-    
-    
+
+
 </body>
+
 </html>
