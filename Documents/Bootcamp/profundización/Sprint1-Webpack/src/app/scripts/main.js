@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 import '../styles/style.scss';
 import './UI'
-import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back, edit_url, section_img, edit_img, confirm, section_name, edit } from "./UI";
+import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back, edit_url, section_img, edit_img, confirm, section_name, edit, search, search_msg, lupa_msg, back__msg, input_search_msg, cancel_search } from "./UI";
 
 //Expresiones regulares
 
@@ -104,12 +104,6 @@ formSignUp.addEventListener('submit', (e) => {
             text: 'Este campo solo admite letras'
         })
     }
-    // else if (!expRegContra.exec(signUp__password.value)){
-    //     Swal.fire({
-    //         icon: 'info',
-    //         text: 'Contraseña demasiado insegura'
-    //     })
-    // }
     else {
         Swal.fire({
             icon: 'info',
@@ -149,4 +143,18 @@ confirm.addEventListener('click', () => {
         text:'Nombre editado exitosamente'
     })
   section_name.classList.add('hidden');
+})
+search.addEventListener('click', () => {
+  search_msg.classList.remove('hidden');
+})
+back__msg.addEventListener('click', () => {
+  search_msg.classList.add('hidden');
+})
+input_search_msg.addEventListener('keyup', () => {
+    if (input_search_msg.value) {
+        cancel_search.classList.remove('invisible');
+    }
+    else{
+        cancel_search.classList.add('invisible');
+    }
 })
