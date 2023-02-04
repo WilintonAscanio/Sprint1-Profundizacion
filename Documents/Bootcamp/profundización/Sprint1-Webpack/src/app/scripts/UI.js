@@ -12,6 +12,7 @@ import icon_camera from "../assets/images/camara.png"
 import icon_edit from "../assets/images/editar.png"
 import icon_confirm from "../assets/images/cheque.png"
 import icon_back_msg from "../assets/images/x.png"
+import { getALLMessages, getAllUsers, getUser, newMessagge, newUser } from "./services.js";
 
 
 
@@ -63,7 +64,7 @@ export const send_msg = document.getElementById('send_msg');
 export const send_msg_date = document.getElementById('send_msg_date');
 export const search_msg = document.getElementById('search_msg');
 export const input_search_msg = document.getElementById('input_search_msg');
-
+export const iconTop = document.getElementById('iconTop').href = icono;
 
 
 
@@ -94,5 +95,19 @@ cancel_search.src = icon_back_msg;
 send_msg.src = icon_enviado;
 send_msg_date.src = icon_enviado;
 
+export const addNewUser = async () => {
+    
+    const user = {
+        nombre: signUp__name.value,
+        celular: signUp__cel.value,
+        contraseña: signUp__password.value,
+        imagen: signUp__url.value,
+        online: false,
+        frase: signUp__phrase.value,
+        fecha: ""
 
+    }
+    console.log(user);
+    await newUser(user);
+}
 
