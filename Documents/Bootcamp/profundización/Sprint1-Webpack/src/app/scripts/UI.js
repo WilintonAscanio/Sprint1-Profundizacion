@@ -2,7 +2,7 @@ import icono from "../assets/images/icono.png";
 import aside__image from "../assets/images/hombre.png"
 import icon_lupa from "../assets/images/search.svg"
 import profile2 from "../assets/images/hombre2.png"
-import icon_enviado from "../assets/images/doble-verificacion.png"
+import icon_enviado from "../assets/images/doble.svg"
 import visto from "../assets/images/visto__azul.png"
 import icon_emoji from "../assets/images/smile.svg"
 import icon_paper from "../assets/images/paperclip.svg"
@@ -11,6 +11,8 @@ import icon_back from "../assets/images/icon-back.png"
 import icon_camera from "../assets/images/camara.png"
 import icon_edit from "../assets/images/editar.png"
 import icon_confirm from "../assets/images/cheque.png"
+import icon_back_msg from "../assets/images/x.png"
+import { getALLMessages, getAllUsers, getUser, newMessagge, newUser } from "./services.js";
 
 
 
@@ -55,7 +57,14 @@ export const edit_img = document.getElementById('edit_img');
 export const edit_url = document.getElementById('edit_url');
 export const section_img = document.getElementById('section_img');
 export const section_name = document.getElementById('section_name');
-
+export const back__msg = document.getElementById('back_msg');
+export const lupa_msg = document.getElementById('lupa_msg');
+export const cancel_search = document.getElementById('cancel_search');
+export const send_msg = document.getElementById('send_msg');
+export const send_msg_date = document.getElementById('send_msg_date');
+export const search_msg = document.getElementById('search_msg');
+export const input_search_msg = document.getElementById('input_search_msg');
+export const iconTop = document.getElementById('iconTop').href = icono;
 
 
 
@@ -80,5 +89,25 @@ camera.src = icon_camera;
 edit.src = icon_edit;
 confirm.src = icon_confirm;
 edit_img.src = icon_confirm
+back__msg.src = icon_back_msg;
+lupa_msg.src = icon_lupa;
+cancel_search.src = icon_back_msg;
+send_msg.src = icon_enviado;
+send_msg_date.src = icon_enviado;
 
+export const addNewUser = async () => {
+    
+    const user = {
+        nombre: signUp__name.value,
+        celular: signUp__cel.value,
+        contraseña: signUp__password.value,
+        imagen: signUp__url.value,
+        online: false,
+        frase: signUp__phrase.value,
+        fecha: ""
+
+    }
+    console.log(user);
+    await newUser(user);
+}
 

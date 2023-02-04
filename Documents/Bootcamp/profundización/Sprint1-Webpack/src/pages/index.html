@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./images/icono.png">
+    <link rel="shortcut icon" id="iconTop">
     <title>Whats'up</title>
 </head>
 
 <body>
-    <header id="header" class="hidden">
+    <header id="header">
         <nav>
             <div class="nav__left">
                 <figure>
@@ -26,7 +26,7 @@
 
         </nav>
     </header>
-    <article class="welcome hidden" id="welcome">
+    <article class="welcome" id="welcome">
         <div class="welcome__left">
             <h1>Bienvenido a What's Up</h1>
             <p>Esperemos que disfrutes y siempre recuerdes que en Whats'up <strong class="welcome__slogan">Conectamos tu
@@ -68,7 +68,7 @@
         </form>
 
     </article>
-    <article class="all" id="user_chat">
+    <article class="all hidden" id="user_chat">
         <aside class="aside" id="aside">
             <figure class="aside__figure">
                 <img alt="profile__image" class="aside__img" id="aside__image">
@@ -98,104 +98,7 @@
 
                     </div>
                 </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Lorena <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
 
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Ana <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser de adada adad </span> </p>
-
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Sofia <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
-
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Laura <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
-
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Alvaro <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
-
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Daniel <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
-
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Luisa <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
-
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Andrea <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
-
-                    </div>
-                </div>
-                <div class="chat__container">
-                    <figure class="chat__figure">
-                        <img src="/images/hombre2.png" alt="profile__chat" class="chat__img">
-                    </figure>
-                    <div class="chat__infoUser">
-                        <p class="chat__name">Antonio <span>Viernes</span></p>
-                        <p class="chat__message"><img src="/images/doble-verificacion.png" alt="enviado"> <span>Este es
-                                un mensaje que puede ser enviado de adada adad </span> </p>
-                    </div>
-                </div>
             </section>
         </aside>
         <aside class="aside__profile hidden" id="aside__profile">
@@ -230,18 +133,18 @@
 
         </aside>
         <section class="messages">
-            <header class="messages__header">
-                <div class="messages__user">
-                    <figure class="messages__figure">
-                        <img id="img__user2" class="img_user2">
-                        <p id="messages__user2__name">Josefa <span>EN LINEA</span></p>
-                    </figure>
-                    <figure>
-                        <img alt="search" id="search">
-                    </figure>
-                </div>
-            </header>
             <main>
+                <header class="messages__header">
+                    <div class="messages__user">
+                        <figure class="messages__figure">
+                            <img id="img__user2" class="img_user2">
+                            <p id="messages__user2__name">Josefa <span>EN LINEA</span></p>
+                        </figure>
+                        <figure>
+                            <img alt="search" id="search">
+                        </figure>
+                    </div>
+                </header>
                 <article class="main__all__messages" id="main">
                     <div class="main__day">
                         <p>Miercoles</p>
@@ -311,23 +214,53 @@
                     </section>
 
                 </article>
+                <footer>
+                    <form class="form__footer" id="form__footer">
+                        <figure class="footer__figure">
+                            <img alt="smile" id="emoji">
+                            <img id="paperclip" alt="paperclip">
+                        </figure>
+                        <input type="text" placeholder="Escribe un mensaje" id="footer__input">
+                        <figure class="footer__figure__mic">
+                            <img alt="mic" id="mic">
+                        </figure>
+                        <button type="submit"></button>
+
+                    </form>
+
+                </footer>
 
             </main>
-            <footer>
-                <form class="form__footer" id="form__footer">
-                    <figure class="footer__figure">
-                        <img alt="smile" id="emoji">
-                        <img id="paperclip" alt="paperclip">
-                    </figure>
-                    <input type="text" placeholder="Escribe un mensaje" id="footer__input">
-                    <figure class="footer__figure__mic">
-                        <img alt="mic" id="mic">
-                    </figure>
-                    <button type="submit"></button>
 
-                </form>
+            <aside class="searchMsg hidden" id="search_msg">
 
-            </footer>
+                <div class="searchMsg__back">
+                    <figure>
+                        <img alt="back" id="back_msg">
+                    </figure>
+                    <small>Mensajes con Josefa</small>
+                </div>
+                <div class="searchMsg__with">
+                    <img id="lupa_msg" alt="lupa">
+                    <input type="text" placeholder="Buscar" id="input_search_msg">
+                    <img id="cancel_search" alt="cancel" class="invisible">
+                </div>
+                <section class="searchMsg__found">
+                    <small>Viernes</small>
+                    <div class="searchMsg__found__msg">
+                        <p><img id="send_msg" alt="enviado"><strong>Claro:</strong>Mensaje enviado por Claro para tu
+                            mayor comodidad asi que no pienses
+                            nada malo</p>
+                    </div>
+                    <small>09/12/2022</small>
+                    <div class="searchMsg__found__date">
+
+                        <p><img id="send_msg_date" alt="enviado"><span>Claro podemos verlo para ver que puede pasar
+                                porque de todo puede suceder</span></p>
+                    </div>
+                </section>
+
+            </aside>
 
 
 

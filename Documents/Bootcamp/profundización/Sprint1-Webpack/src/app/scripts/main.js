@@ -1,7 +1,8 @@
 import Swal from 'sweetalert2';
 import '../styles/style.scss';
+import { getAllUsers, getUser } from './services.js';
 import './UI'
-import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back, edit_url, section_img, edit_img, confirm, section_name, edit } from "./UI";
+import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back, edit_url, section_img, edit_img, confirm, section_name, edit, search, search_msg, lupa_msg, back__msg, input_search_msg, cancel_search, addNewUser } from "./UI";
 
 //Expresiones regulares
 
@@ -39,56 +40,85 @@ const user_view = () => {
 }
 user_view();
 
-const validation = (cel, contra) => {
-    if (cel.value.length < 11) {
+
+formSignIn.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const signId = login__celular.value;
+    const signPassword = login_password.value;
+    const response = await getAllUsers();
+    response.forEach(element => {
+        console.log(element.nombre);
+        if (signId && signPassword && element.celular === signId && element.contraseña === signPassword) {
+            Swal.fire({
+                title: "Bienvenido de vuelta",
+                text: "Credenciales correctas",
+                icon: 'success'
+            });
+            user_chat.classList.remove('hidden');
+            welcome.classList.add('hidden');
+            header.classList.add('hidden')
+
+        }
+        else {
+            Swal.fire({
+                icon: 'info',
+                text: 'Compruebe sus credenciales'
+            })
+        }
+    })
+});
+
+formSignUp.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!signUp__name.value && !signUp__cel.value && !signUp__password.value && !signUp__url.value) {
+        Swal.fire({
+            icon: 'info',
+            text: 'Por favor rellene todos los campos obligatorios'
+        })
+
+    }
+    else if (!expRegNombre.exec(signUp__name.value)) {
+        Swal.fire({
+            icon: 'info',
+            text: 'Este campo solo admite letras'
+        })
+    }
+    else if (signUp__name.value.length < 3) {
+        Swal.fire({
+            icon: 'info',
+            text: 'Nombre muy corto'
+        })
+    }
+    else if (signUp__cel.value.length > 10 || signUp__cel.value.length != 10) {
         Swal.fire({
             icon: 'info',
             text: 'El número ingresado es incorrecto'
         })
 
     }
-    else if (cel.value[0] != 3) {
+    else if (signUp__cel.value[0] != 3) {
         Swal.fire({
             icon: 'info',
             text: 'El número ingresado es inválido '
         })
 
     }
-    else if (contra.value.length < 1) {
+    else if (signUp__password.value.length < 5) {
         Swal.fire({
             icon: 'info',
-            text: 'La contraseña ingresada es incorrecta'
+            text: 'La contraseña ingresada es demasiado corta'
         })
     }
-}
-
-formSignIn.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    if (login__celular.value.length === 10 && login_password.value) {
-
+    else if (!signUp__url.value) {
         Swal.fire({
-            title: "Bienvenido de vuelta",
-            text: "Credenciales correctas",
-            icon: 'success'
-
+            icon: 'info',
+            text: 'Ingrese un enlace válido'
         })
-        user_chat.classList.remove('hidden');
-        welcome.classList.add('hidden');
-        header.classList.add('hidden')
     }
+
+
+
     else {
-        Swal.fire({
-            icon: 'info',
-            text: 'Compruebe sus credenciales'
-        })
-        validation(login__celular, login_password)
-    }
-})
-
-formSignUp.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (signUp__name.value && signUp__cel.value && signUp__password.value && signUp__url.value) {
         Swal.fire({
             title: "Bienvenido a What's Up",
             text: 'Esperamos que disfrutes',
@@ -97,48 +127,32 @@ formSignUp.addEventListener('submit', (e) => {
         createAccount.classList.add('hidden');
         user_chat.classList.remove('hidden');
         header.classList.add('hidden');
+        await addNewUser();
+
     }
-    else if (!expRegNombre.exec(signUp__name.value)) {
-        Swal.fire({
-            icon: 'info',
-            text: 'Este campo solo admite letras'
-        })
-    }
-    // else if (!expRegContra.exec(signUp__password.value)){
-    //     Swal.fire({
-    //         icon: 'info',
-    //         text: 'Contraseña demasiado insegura'
-    //     })
-    // }
-    else {
-        Swal.fire({
-            icon: 'info',
-            text: 'Por favor rellene todos los campos obligatorios'
-        })
-        validation(signUp__cel, signUp__password)
-    }
+
 })
 
 asideImage.addEventListener('click', () => {
     aside.classList.add('hidden');
     aside__profile.classList.remove('hidden');
-  
+
 })
 back.addEventListener('click', () => {
-  aside__profile.classList.add('hidden');
-  aside.classList.remove('hidden');
+    aside__profile.classList.add('hidden');
+    aside.classList.remove('hidden');
 })
 
 edit_url.addEventListener('click', () => {
-  section_img.classList.remove('hidden');
+    section_img.classList.remove('hidden');
 })
 
 edit_img.addEventListener('click', () => {
     Swal.fire({
         icon: 'success',
-        text:'Imagen editada exitosamente'
+        text: 'Imagen editada exitosamente'
     })
-  section_img.classList.add('hidden')
+    section_img.classList.add('hidden')
 })
 edit.addEventListener('click', () => {
     section_name.classList.remove('hidden');
@@ -146,7 +160,21 @@ edit.addEventListener('click', () => {
 confirm.addEventListener('click', () => {
     Swal.fire({
         icon: 'success',
-        text:'Nombre editado exitosamente'
+        text: 'Nombre editado exitosamente'
     })
-  section_name.classList.add('hidden');
+    section_name.classList.add('hidden');
+})
+search.addEventListener('click', () => {
+    search_msg.classList.remove('hidden');
+})
+back__msg.addEventListener('click', () => {
+    search_msg.classList.add('hidden');
+})
+input_search_msg.addEventListener('keyup', () => {
+    if (input_search_msg.value) {
+        cancel_search.classList.remove('invisible');
+    }
+    else {
+        cancel_search.classList.add('invisible');
+    }
 })
