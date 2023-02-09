@@ -1,12 +1,18 @@
 import Swal from 'sweetalert2';
+import { DateTime } from 'luxon';
 import '../styles/style.scss';
-import { editData, editImg, getALLMessages, getAllUsers, getUser } from './services.js';
+import { editData, editImg, getALLMessages, getAllUsers, getMessages, getUser, newMessagge } from './services.js';
 import './UI'
-import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back, edit_url, section_img, edit_img, confirm, section_name, edit, search, search_msg, lupa_msg, back__msg, input_search_msg, cancel_search, addNewUser, nameUser, edit__img, edit__name, renderAllUsers, renderChat, footer__input, sendMessage, form__footer, chat_container, last_message, renderUser, mainChat, searchMsg__with, searchMsg } from "./UI.js";
+import { navSignIn, formSignIn, welcome__figure, signUp__button, welcome, createAccount, user_chat, header, formSignUp, login__celular, login_password, allSignUp, signUp__name, signUp__cel, signUp__password, signUp__url, signUp__phrase, asideImage, aside__profile, aside, back, edit_url, section_img, edit_img, section_name, edit, search, search_msg, lupa_msg, back__msg, input_search_msg, cancel_search, addNewUser, nameUser, edit__img, edit__name, renderAllUsers, renderChat, footer__input, sendMessage, form__footer, chat_container, last_message, renderUser, mainChat, searchMsg__with, searchMsg, getConversation, messageSend, confirmar, renderSearch, newConversation } from "./UI.js";
 
 //Expresiones regulares
 
 var expRegNombre = /^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/;
+
+const time = DateTime.now();
+
+
+// console.log(time.toFormat("HH':'mm':'ss'"));
 
 
 const showFormSingIn = () => {
@@ -42,6 +48,28 @@ user_view();
 
 let userId = 0;
 let userId2 = 0;
+const infoUser = () => {
+    let data = JSON.parse(localStorage.getItem('user')) || []
+    return data
+}
+
+// document.addEventListener('DOMContentLoaded', async () => {
+//     let data = JSON.parse(localStorage.getItem('user')) || [];
+//     if (data) {
+//         user_chat.classList.remove('hidden');
+//         welcome.classList.add('hidden');
+//         header.classList.add('hidden');
+//         const response = await getUser(data.id);
+//         userId = Number(response.id);
+//         asideImage.src = response.imagen;
+//         nameUser.innerHTML = response.nombre;
+//         await renderAllUsers(userId)
+
+
+
+//     }
+
+// })
 
 
 formSignIn.addEventListener('submit', async (e) => {
@@ -68,13 +96,13 @@ formSignIn.addEventListener('submit', async (e) => {
         userId = response.id;
         asideImage.src = response.imagen;
         nameUser.innerHTML = response.nombre;
-
+        localStorage.setItem('user', JSON.stringify(response))
         user_chat.classList.remove('hidden');
         welcome.classList.add('hidden');
         header.classList.add('hidden');
         await renderAllUsers(userId)
-        const render = await getALLMessages()
-        console.log(render);
+        // const render = await getALLMessages()
+        // console.log(render);
 
 
     } else {
@@ -146,6 +174,7 @@ formSignUp.addEventListener('submit', async (e) => {
         await addNewUser();
         await renderAllUsers(signUp__cel.value)
         const response = await getUser(signUp__cel.value);
+        localStorage.setItem('user', JSON.stringify(response))
         asideImage.src = response.imagen;
         nameUser.innerHTML = response.nombre;
         createAccount.classList.add('hidden');
@@ -202,7 +231,7 @@ edit_img.addEventListener('click', async () => {
 edit.addEventListener('click', () => {
     section_name.classList.remove('hidden');
 })
-confirm.addEventListener('click', async () => {
+confirmar.addEventListener('click', async () => {
 
     const newName = {
         nombre: edit__name.value
@@ -242,20 +271,59 @@ input_search_msg.addEventListener('keyup', () => {
 input_search_msg.addEventListener('click', () => {
     searchMsg__with.reset();
 })
+
 chat_container.addEventListener('click', async (e) => {
-    userId2 = e.target.getAttribute('data-id');
-    await renderUser(userId2);
-    await renderChat(userId, userId2);
-    const userDetail = await getUser(userId2);
-    chatWith.innerHTML = `Mensajes con ${userDetail.nombre}`
+    userId2 = Number(e.target.getAttribute('data-id'));
+    console.log(userId2);
+    const info = infoUser()
+
+    const mensajes = await getConversation();
+    let conversationFilter = mensajes.filter(mensaje => parseInt(mensaje.idUser1) === parseInt(info.id) || parseInt(mensaje.idUser2) === parseInt(info.id))
+    if (conversationFilter) {
+        await renderUser(userId2);
+        await renderChat(info, conversationFilter[0].mensajes);
+        const userDetail = await getUser(userId2);
+        chatWith.innerHTML = `Mensajes con ${userDetail.nombre}`
+
+    }
+
 })
 form__footer.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const info = infoUser()
+
     if (footer__input.value) {
-        // last_message.innerHTML = footer__input.value;
-        await sendMessage(userId, userId2);
-        await renderChat(userId, userId2);
-        
+
+        const mensajes = await getConversation();
+        let conversationFilter = mensajes.filter(mensaje => parseInt(mensaje.idUser1) === parseInt(info.id) || parseInt(mensaje.idUser2) === parseInt(info.id))
+        if (conversationFilter) {
+            let mensaje =
+            {
+                sendBy: parseInt(info.id),
+                date: time.toISODate(),
+                hour: time.toFormat("HH':'mm':'ss'"),
+                message: footer__input.value,
+                visto: false
+            }
+            let conversations = mensajes[0].mensajes
+            conversations.push(mensaje)
+
+
+            const addMsg = {
+                mensajes: conversations
+            }
+            await newMessagge(mensajes[0].id, { mensajes: conversations })
+            await renderChat(info, conversationFilter[0].mensajes);
+            last_message.innerHTML = mensaje.message;
+
+        }
+        // npm run dev
+
+
+
+        // await sendMessage(userId, userId2);
+        // await renderChat(userId, userId2);
+
         form__footer.reset();
 
 
@@ -263,12 +331,14 @@ form__footer.addEventListener('submit', async (e) => {
     }
 
 })
-searchMsg__with.addEventListener('submit', (e) => {
-    e.preventDefault()
-    let busqueda = input_search_msg.value
-    searchMsg__with.reset()
-  
-})
+// Buscar un mensaje !!
+
+// searchMsg__with.addEventListener('submit', (e) => {
+//     e.preventDefault()
+//     let busqueda = input_search_msg.value
+//     searchMsg__with.reset()
+
+// })
 
 
 
@@ -276,10 +346,31 @@ searchMsg__with.addEventListener('submit', (e) => {
 //     event.preventDefault();
 //     const inputSearch = document.querySelector("#input_search_msg");
 //     const searchTerm = inputSearch.value;
-    // if (searchTerm) {
-    //     getPokemons(URL_API, searchTerm);
-    // }
-    // else if (searchTerm == "") {
-    //     getPokemons(URL_API);
-    // }
+// if (searchTerm) {
+//     getPokemons(URL_API, searchTerm);
+// }
+// else if (searchTerm == "") {
+//     getPokemons(URL_API);
+// }
 // });
+
+
+
+
+// Eliminar un mensaje!!
+
+
+
+// main.addEventListener('click', async (e) => {
+//     console.log(e.target);
+//     if (e.target.classList.contains('main__right') || e.target.classList.contains('message__date') || e.target.classList.contains('message__p')) {
+//         const action = confirm('Desea borrar el mensaje?');
+//         const date = await getMessages();
+//         let mensajes = date[0].mensajes;
+//         console.log(date);
+//         console.log(mensajes[mensajes.length - 1].message);
+
+
+//     }
+
+// })
